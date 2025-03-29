@@ -33,9 +33,9 @@
     "json"
   ],
   "files.exclude": {
-    "**/.vs_code": true,
+    "**/.vscode": true,
     "**/.next": true,
-    "**/.node_modules": true,
-    "**/.next-env.d.ts": true
+    "**/node_modules": true,
+    "**/next-env.d.ts": true
   }
 }
