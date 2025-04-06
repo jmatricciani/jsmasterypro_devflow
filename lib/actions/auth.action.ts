@@ -10,7 +10,6 @@ import bcrypt from "bcryptjs";
 import Account from "@/database/account.model";
 import { NotFoundError } from "../http-errors";
 import { signIn } from "@/auth";
-// import { signIn } from "next-auth/react";
 
 export async function signUpWithCredentials(
   params: AuthCredentials
@@ -59,7 +58,7 @@ export async function signUpWithCredentials(
 
     await session.commitTransaction();
 
-    // await signIn("credentials", { email, password, redirect: false });
+    await signIn("credentials", { email, password, redirect: false });
 
     return { success: true };
   } catch (error) {
