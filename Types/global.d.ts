@@ -11,7 +11,7 @@ interface Author {
   image: string;
 }
 
-interface Question {
+interface TQuestion {
   _id: string;
   title: string;
   content: string;
@@ -42,4 +42,12 @@ type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse>;
 interface RouteParams {
   params: Promise<Record<string, string>>;
   searchParams: Promise<Record<string, string>>;
+}
+
+interface PagainatedSearchParams {
+  page?: number;
+  pageSize?: number;
+  query?: string;
+  filter?: string;
+  sort?: string;
 }

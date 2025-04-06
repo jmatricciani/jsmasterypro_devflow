@@ -4,9 +4,10 @@ import React from "react";
 import TagCard from "./TagCard";
 import Link from "next/link";
 import Metric from "../Metric";
+import { Tag, TQuestion } from "@/Types/global";
 
 interface Props {
-  question: Question;
+  question: TQuestion;
 }
 
 const QuestionCard = ({
