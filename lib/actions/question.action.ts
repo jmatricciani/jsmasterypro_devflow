@@ -4,7 +4,6 @@ import {
   ActionResponse,
   ErrorResponse,
   PagainatedSearchParams,
-  TQuestion,
 } from "@/Types/global";
 import action from "../handlers/action";
 import {
@@ -15,7 +14,7 @@ import {
 } from "../validations";
 import handleError from "../handlers/error";
 import mongoose, { FilterQuery } from "mongoose";
-import Question, { IQuestionDoc } from "@/database/question.model";
+import Question from "@/database/question.model";
 import Tag, { ITagDoc } from "@/database/tag.model";
 import TagQuestion from "@/database/tag-question.model";
 
@@ -86,7 +85,7 @@ export async function createQuestion(
 
 export async function editQuestion(
   params: EditQuestionParams
-): Promise<ActionResponse<IQuestionDoc>> {
+): Promise<ActionResponse<InstanceType<typeof Question>>> {
   const validationResult = await action({
     params,
     schema: EditQuestionSchema,
@@ -220,9 +219,12 @@ export async function getQuestion(
   }
 }
 
-export async function getQuestions(
-  params: PagainatedSearchParams
-): Promise<ActionResponse<{ questions: TQuestion[]; isNext: boolean }>> {
+export async function getQuestions(params: PagainatedSearchParams): Promise<
+  ActionResponse<{
+    questions: InstanceType<typeof Question>[];
+    isNext: boolean;
+  }>
+> {
   const validationResult = await action({
     params,
     schema: PagainatedSearchParamsSchema,
