@@ -24,7 +24,6 @@ import { createQuestion, editQuestion } from "@/lib/actions/question.action";
 import { useRouter } from "next/navigation";
 import ROUTES from "@/constants/routes";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { Question } from "@/Types/global";
 
 const Editor = dynamic(() => import("@/components/editor"), {
   ssr: false,

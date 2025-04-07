@@ -22,7 +22,6 @@ import {
 import { Input } from "@/components/ui/input";
 import ROUTES from "@/constants/routes";
 import Link from "next/link";
-import { ActionResponse } from "@/Types/global";
 import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 

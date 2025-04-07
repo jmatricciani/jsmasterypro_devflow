@@ -1,26 +1,21 @@
 "use server";
 
-import {
-  ActionResponse,
-  ErrorResponse,
-  PagainatedSearchParams,
-} from "@/Types/global";
 import action from "../handlers/action";
 import {
   AskQuestionSchema,
   EditQuestionSchema,
   GetQuestionSchema,
-  PagainatedSearchParamsSchema,
+  PaginatedSearchParamsSchema,
 } from "../validations";
 import handleError from "../handlers/error";
 import mongoose, { FilterQuery } from "mongoose";
-import Question from "@/database/question.model";
 import Tag, { ITagDoc } from "@/database/tag.model";
 import TagQuestion from "@/database/tag-question.model";
+import { Question } from "@/database";
 
 export async function createQuestion(
   params: CreateQuestionParams
-): Promise<ActionResponse<InstanceType<typeof Question>>> {
+): Promise<ActionResponse<Question>> {
   const validationResult = await action({
     params,
     schema: AskQuestionSchema,
@@ -85,7 +80,7 @@ export async function createQuestion(
 
 export async function editQuestion(
   params: EditQuestionParams
-): Promise<ActionResponse<InstanceType<typeof Question>>> {
+): Promise<ActionResponse<Question>> {
   const validationResult = await action({
     params,
     schema: EditQuestionSchema,
@@ -193,7 +188,7 @@ export async function editQuestion(
 
 export async function getQuestion(
   params: GetQuestionParams
-): Promise<ActionResponse<InstanceType<typeof Question>>> {
+): Promise<ActionResponse<Question>> {
   const validationResult = await action({
     params,
     schema: GetQuestionSchema,
@@ -221,13 +216,13 @@ export async function getQuestion(
 
 export async function getQuestions(params: PagainatedSearchParams): Promise<
   ActionResponse<{
-    questions: InstanceType<typeof Question>[];
+    questions: Question[];
     isNext: boolean;
   }>
 > {
   const validationResult = await action({
     params,
-    schema: PagainatedSearchParamsSchema,
+    schema: PaginatedSearchParamsSchema,
   });
 
   if (validationResult instanceof Error) {

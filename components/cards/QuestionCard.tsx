@@ -4,7 +4,6 @@ import React from "react";
 import TagCard from "./TagCard";
 import Link from "next/link";
 import Metric from "../Metric";
-import { Tag, Question } from "@/Types/global";
 
 interface Props {
   question: Question;
@@ -66,7 +65,7 @@ const QuestionCard = ({
             imgUrl="/icons/eye.svg"
             alt="views"
             value={views}
-            title=" Viwes"
+            title=" Views"
             textStyles="small-medium text-dark400_light800"
           />
         </div>
