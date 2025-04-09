@@ -38,10 +38,16 @@ export const EMPTY_TAGS = {
   },
 };
 
+export const EMPTY_ANSWERS = {
+  title: "No Answers Found",
+  message:
+    "The answer board is empty. Make it rain with your brilliant answer.",
+};
+
 export const EMPTY_COLLECTIONS = {
   title: "Collections Are Empty",
   message:
-    "Looks like you haven’t created any collections yet. Start curating something extraordinary today",
+    "Looks like you haven’t created any collections yet. Start curating something extraordinary today.",
   button: {
     text: "Save to Collection",
     href: ROUTES.COLLECTION,

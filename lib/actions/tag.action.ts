@@ -10,7 +10,7 @@ import {
 import { Question, Tag } from "@/database";
 
 export const getTags = async (
-  params: PagainatedSearchParams
+  params: PaginatedSearchParams
 ): Promise<ActionResponse<{ tags: Tag[]; isNext: boolean }>> => {
   const validationResult = await action({
     params,
